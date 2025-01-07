@@ -11,6 +11,23 @@ def get_numbers_ticket(min, max, quantity):
     
     return numbers_list
 
+def check_input(min, max, quantity):
+    if min < 1 or min > 999:
+        print("Min is invalid")
+        return False
+    elif max <= min or max > 1000:
+        print("Max is invalid")
+        return False
+    elif quantity > max - min:
+        print("Quantity is invalid")
+        return False
+    return True
 
-lottery_numbers = get_numbers_ticket(1, 49, 6)
-print("Ваші лотерейні числа:", lottery_numbers)
+min = int(input("Enter min: "))
+max = int(input("Enter max: "))
+quantity = int(input("Enter quantity: "))
+
+
+if check_input(min, max, quantity):
+    lottery_numbers = get_numbers_ticket(min, max, quantity)
+    print("Ваші лотерейні числа:", lottery_numbers)
